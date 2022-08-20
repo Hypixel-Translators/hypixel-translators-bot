@@ -9,7 +9,7 @@
     "totalVotes": "Toplam oy",
     "createdOn": "Oluşturulma Tarihi:",
     "endingOn": "Bitiş Tarihi:",
-    "voteCount": "{number, plural, one {# vote} other {# votes}}",
+    "voteCount": "{number, plural,  other {# oy}}",
     "pollResults": "Anket sonuçları",
     "endingWarning": "Dikkat et! Bu anket yakında sona eriyor",
     "endingWarningDesc": "Bu anketin %%fullTime%% (%%relativeTime%%) tarihinde bitmesi planlanıyor, bu yüzden muhtemelen henüz bu anketi sonlandırmak istemiyorsunuzdur. Eğer istiyorsanız, aşağıdaki düğmeyi kullanarak bunu onaylayın.",
