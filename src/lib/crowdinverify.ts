@@ -37,6 +37,7 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 		languages = db.collection<MongoLanguage>("languages"),
 		usersColl = db.collection<DbUser>("users"),
 		statsColl = db.collection<Stats>("stats"),
+		yearsVeteran = Number((member.roles.cache.find(r => r.name.endsWith("Veteran"))?.name.match(/\d+/) ?? ["0"])[0]),
 		verifyType = sendDms ? "SELF" : sendLogs ? "STAFF" : "AUTO"
 	if (!url) {
 		const userDb = await client.getUser(member.id)
@@ -260,6 +261,8 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 
 	const allProjectRoles: Role[] = []
 
+	let newYearsVeteran = 0
+
 	for (const project of projects.filter(p => Object.keys(projectNames).includes(p.id))) {
 		const projectName = projectNames[project.id]
 		// If user was removed from all langs
@@ -302,6 +305,8 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 			}
 
 			const veteranRole = await getVeteranRole(member, project)
+			newYearsVeteran = Number((veteranRole?.name.match(/\d+/) ?? ["0"])[0])
+
 			if (veteranRole) allProjectRoles.push(veteranRole)
 		}
 	}
@@ -401,8 +406,19 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 				logEmbed.setFooter({ text: "Message not sent because user had DMs off" })
 				await verifyLogs.send({ embeds: [logEmbed] })
 			})
-	} else if (sendLogs) await verifyLogs.send({ embeds: [logEmbed] })
-	if (sendLogs) await statsColl.insertOne({ type: "VERIFY", name: verifyType, user: member.id })
+	} else if (sendLogs) {
+		await verifyLogs.send({ embeds: [logEmbed] })
+		await statsColl.insertOne({ type: "VERIFY", name: verifyType, user: member.id })
+	}
+
+	if (newYearsVeteran > yearsVeteran)
+		member.send({ embeds: [new EmbedBuilder()
+			.setColor(Colors.Blurple)
+			.setTitle(`You've now been on the Hypixel project for ${newYearsVeteran} year${newYearsVeteran === 1 ? "" : "s"}!`)
+			.setDescription("As a reward, you've been given a special role! Congratulations!")
+		]})
+		.catch(() => null)
+
 	// #endregion
 }
 
