@@ -412,12 +412,16 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 	}
 
 	if (newYearsVeteran > yearsVeteran && !sendDms)
-		member.send({ embeds: [new EmbedBuilder()
-			.setColor(Colors.Blurple)
-			.setTitle(`You've now been on the Hypixel project for ${newYearsVeteran} year${newYearsVeteran === 1 ? "" : "s"}!`)
-			.setDescription("As a reward, you've been given a special role! Congratulations!")
-		]})
-		.catch(() => null)
+		member
+			.send({
+				embeds: [
+					new EmbedBuilder()
+						.setColor(Colors.Blurple)
+						.setTitle(`You've now been on the Hypixel project for ${newYearsVeteran} year${newYearsVeteran === 1 ? "" : "s"}!`)
+						.setDescription("As a reward, you've been given a special role! Congratulations!"),
+				],
+			})
+			.catch(() => null)
 
 	// #endregion
 }
