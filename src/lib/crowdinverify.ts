@@ -412,7 +412,7 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 	}
 
 	if (newYearsVeteran > yearsVeteran && !sendDms) {
- member
+		member
 			.send({
 				embeds: [
 					new EmbedBuilder()
@@ -422,7 +422,7 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 				],
 			})
 			.catch(() => null)
-}
+	}
 
 	// #endregion
 }
