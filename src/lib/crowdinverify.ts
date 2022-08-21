@@ -260,6 +260,8 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 
 	const allProjectRoles: Role[] = []
 
+	let veteranRole: Role | undefined
+
 	for (const project of projects.filter(p => Object.keys(projectNames).includes(p.id))) {
 		const projectName = projectNames[project.id]
 		// If user was removed from all langs
@@ -301,20 +303,22 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 				}
 			}
 
-			const veteranRole = await getVeteranRole(member, project)
+			veteranRole = await getVeteranRole(member, project)
 			if (veteranRole) allProjectRoles.push(veteranRole)
 		}
 	}
 
-	const newMemberRoles = [
-		...new Set([
-			// Remove all translator roles
-			...member.roles.cache.filter(r => !isTranslatorRole(r) && r.id !== ids.roles.alerted).keys(),
-			// Keep the ones the user still has
-			...allProjectRoles.map(r => r.id),
-			ids.roles.verified,
-		]),
-	]
+	const hasUpdatedVeteran = member.roles.cache.find(r => r.name.endsWith("Veteran"))?.id !== veteranRole?.id,
+		newVeteranYears = veteranRole?.name.match(/^\d+/)![0],
+		newMemberRoles = [
+			...new Set([
+				// Remove all translator roles
+				...member.roles.cache.filter(r => !isTranslatorRole(r) && r.id !== ids.roles.alerted).keys(),
+				// Keep the ones the user still has
+				...allProjectRoles.map(r => r.id),
+				ids.roles.verified,
+			]),
+		]
 
 	await member.roles.set(newMemberRoles, "User is now Verified")
 	await usersColl.updateOne({ id: member.id }, { $set: { profile: url }, $unset: { unverifiedTimestamp: true } })
@@ -380,7 +384,11 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 		.setDescription(
 			`${
 				allProjectRoles.length
-					? "You've been given all your project roles!"
+					? `You've been given all your project roles!${
+							hasUpdatedVeteran && veteranRole
+								? ` You've also been given the ${veteranRole} role due to how long you've been on the Hypixel project!`
+								: ""
+					  }`
 					: "Sadly, you didn't receive any roles because you don't translate for any of the projects we currently support.\nMake sure to refresh your roles using `/verify` once you have joined some of them. Keep in mind that if you recently sent a request to join one of the projects you will have to wait until it's accepted."
 			}\nHere's a few things you can do on the server now:\n\n - Check out <#${
 				ids.channels.gettingStarted
@@ -393,6 +401,21 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 			}>;\n - Talk with the community in <#${ids.channels.offTopic}>\n\nWe hope you have fun on the server!`
 		)
 
+	if (sendLogs && hasUpdatedVeteran && newVeteranYears) {
+		member
+			.send({
+				embeds: [
+					dmEmbed
+						.setColor(Colors.Blurple)
+						.setTitle(`You've now been on the Hypixel project for ${newVeteranYears} year${newVeteranYears === "1" ? "" : "s"}!`)
+						.setDescription(
+							"As a result, you've been given a special veteran role on the server. Congratulations! <:congurlation:984954482586714173>"
+						),
+				],
+			})
+			.catch(() => null)
+	}
+
 	if (sendDms) {
 		member
 			.send({ embeds: [dmEmbed] })
@@ -401,8 +424,11 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 				logEmbed.setFooter({ text: "Message not sent because user had DMs off" })
 				await verifyLogs.send({ embeds: [logEmbed] })
 			})
-	} else if (sendLogs) await verifyLogs.send({ embeds: [logEmbed] })
-	if (sendLogs) await statsColl.insertOne({ type: "VERIFY", name: verifyType, user: member.id })
+	} else if (sendLogs) {
+		await verifyLogs.send({ embeds: [logEmbed] })
+		await statsColl.insertOne({ type: "VERIFY", name: verifyType, user: member.id })
+	}
+
 	// #endregion
 }
 
