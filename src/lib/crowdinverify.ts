@@ -411,7 +411,7 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 		await statsColl.insertOne({ type: "VERIFY", name: verifyType, user: member.id })
 	}
 
-	if (newYearsVeteran > yearsVeteran)
+	if (newYearsVeteran > yearsVeteran && !sendDms)
 		member.send({ embeds: [new EmbedBuilder()
 			.setColor(Colors.Blurple)
 			.setTitle(`You've now been on the Hypixel project for ${newYearsVeteran} year${newYearsVeteran === 1 ? "" : "s"}!`)
