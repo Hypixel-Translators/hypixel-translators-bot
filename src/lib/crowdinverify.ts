@@ -411,8 +411,8 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 		await statsColl.insertOne({ type: "VERIFY", name: verifyType, user: member.id })
 	}
 
-	if (newYearsVeteran > yearsVeteran && !sendDms)
-		member
+	if (newYearsVeteran > yearsVeteran && !sendDms) {
+ member
 			.send({
 				embeds: [
 					new EmbedBuilder()
@@ -422,6 +422,7 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 				],
 			})
 			.catch(() => null)
+}
 
 	// #endregion
 }
