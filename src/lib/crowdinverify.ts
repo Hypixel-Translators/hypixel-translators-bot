@@ -385,7 +385,7 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 		.setDescription(
 			`${
 				allProjectRoles.length
-					? "You've been given all your project roles!"
+					? `You've been given all your project roles! ${newYearsVeteran > yearsVeteran ? `You've also been given the ${newYearsVeteran} year${newYearsVeteran === 1 ? "" : "s"} veteran role due to how long you've been on the Hypixel project!` : ""}`
 					: "Sadly, you didn't receive any roles because you don't translate for any of the projects we currently support.\nMake sure to refresh your roles using `/verify` once you have joined some of them. Keep in mind that if you recently sent a request to join one of the projects you will have to wait until it's accepted."
 			}\nHere's a few things you can do on the server now:\n\n - Check out <#${
 				ids.channels.gettingStarted
@@ -397,6 +397,21 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 				ids.channels.bots
 			}>;\n - Talk with the community in <#${ids.channels.offTopic}>\n\nWe hope you have fun on the server!`
 		)
+	
+	if (sendLogs) {
+		if (newYearsVeteran > yearsVeteran && !sendLogs) {
+			member
+				.send({
+					embeds: [
+						new EmbedBuilder()
+							.setColor(Colors.Blurple)
+							.setTitle(`You've now been on the Hypixel project for ${newYearsVeteran} year${newYearsVeteran === 1 ? "" : "s"}!`)
+							.setDescription("As a reward, you've been given a special veteran role! Congratulations!"),
+					],
+				})
+				.catch(() => null)
+		}
+	}
 
 	if (sendDms) {
 		member
@@ -409,19 +424,6 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 	} else if (sendLogs) {
 		await verifyLogs.send({ embeds: [logEmbed] })
 		await statsColl.insertOne({ type: "VERIFY", name: verifyType, user: member.id })
-	}
-
-	if (newYearsVeteran > yearsVeteran && !sendDms) {
-		member
-			.send({
-				embeds: [
-					new EmbedBuilder()
-						.setColor(Colors.Blurple)
-						.setTitle(`You've now been on the Hypixel project for ${newYearsVeteran} year${newYearsVeteran === 1 ? "" : "s"}!`)
-						.setDescription("As a reward, you've been given a special role! Congratulations!"),
-				],
-			})
-			.catch(() => null)
 	}
 
 	// #endregion
