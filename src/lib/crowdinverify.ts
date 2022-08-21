@@ -260,7 +260,7 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 
 	const allProjectRoles: Role[] = []
 
-	let yearsVeteran: number | null = null
+	let veteranRole: Role | undefined
 
 	for (const project of projects.filter(p => Object.keys(projectNames).includes(p.id))) {
 		const projectName = projectNames[project.id]
@@ -303,25 +303,22 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 				}
 			}
 
-			const veteranRole = await getVeteranRole(member, project)
-
-			if (veteranRole) {
-				yearsVeteran = Number(veteranRole.name.match(/\d+/)?.[0])
-				allProjectRoles.push(veteranRole)
-			}
+			veteranRole = await getVeteranRole(member, project)
+			if (veteranRole) allProjectRoles.push(veteranRole)
 		}
 	}
 
-	const hasUpdatedVeteran = member.roles.cache.find(r => r.name.endsWith("Veteran"))?.id !== allProjectRoles.find(r => r.name.endsWith("Veteran"))?.id,
+	const hasUpdatedVeteran = member.roles.cache.find(r => r.name.endsWith("Veteran"))?.id !== veteranRole?.id,
+		newVeteranYears = veteranRole?.name.match(/^\d+/)![0],
 		newMemberRoles = [
-		...new Set([
-			// Remove all translator roles
-			...member.roles.cache.filter(r => !isTranslatorRole(r) && r.id !== ids.roles.alerted).keys(),
-			// Keep the ones the user still has
-			...allProjectRoles.map(r => r.id),
-			ids.roles.verified,
-		]),
-	]
+			...new Set([
+				// Remove all translator roles
+				...member.roles.cache.filter(r => !isTranslatorRole(r) && r.id !== ids.roles.alerted).keys(),
+				// Keep the ones the user still has
+				...allProjectRoles.map(r => r.id),
+				ids.roles.verified,
+			]),
+		]
 
 	await member.roles.set(newMemberRoles, "User is now Verified")
 	await usersColl.updateOne({ id: member.id }, { $set: { profile: url }, $unset: { unverifiedTimestamp: true } })
@@ -388,10 +385,8 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 			`${
 				allProjectRoles.length
 					? `You've been given all your project roles!${
-							hasUpdatedVeteran
-								? ` You've also been given the ${yearsVeteran} year${
-										yearsVeteran === 1 ? "" : "s"
-								  } veteran role due to how long you've been on the Hypixel project!`
+							hasUpdatedVeteran && veteranRole
+								? ` You've also been given the ${veteranRole} role due to how long you've been on the Hypixel project!`
 								: ""
 					  }`
 					: "Sadly, you didn't receive any roles because you don't translate for any of the projects we currently support.\nMake sure to refresh your roles using `/verify` once you have joined some of them. Keep in mind that if you recently sent a request to join one of the projects you will have to wait until it's accepted."
@@ -406,15 +401,16 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 			}>;\n - Talk with the community in <#${ids.channels.offTopic}>\n\nWe hope you have fun on the server!`
 		)
 
-	if (sendLogs && hasUpdatedVeteran) {
+	if (sendLogs && hasUpdatedVeteran && newVeteranYears) {
 		member
 			.send({
 				embeds: [
-					new EmbedBuilder({
-						color: Colors.Blurple,
-						title: `You've now been on the Hypixel project for ${yearsVeteran} year${yearsVeteran === 1 ? "" : "s"}!`,
-						description: "As a result, you've been given a special veteran role! Congratulations!"
-					})
+					dmEmbed
+						.setColor(Colors.Blurple)
+						.setTitle(`You've now been on the Hypixel project for ${newVeteranYears} year${newVeteranYears === "1" ? "" : "s"}!`)
+						.setDescription(
+							"As a result, you've been given a special veteran role on the server. Congratulations! <:congurlation:984954482586714173>"
+						),
 				],
 			})
 			.catch(() => null)
