@@ -260,7 +260,7 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 
 	const allProjectRoles: Role[] = []
 
-	let veteranRole: Role | undefined
+	let yearsVeteran: number | null = null
 
 	for (const project of projects.filter(p => Object.keys(projectNames).includes(p.id))) {
 		const projectName = projectNames[project.id]
@@ -303,18 +303,17 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 				}
 			}
 
-			veteranRole = await getVeteranRole(member, project)
+			const veteranRole = await getVeteranRole(member, project)
 
-			if (veteranRole) allProjectRoles.push(veteranRole)
+			if (veteranRole) {
+				yearsVeteran = Number(veteranRole.name.match(/\d+/)?.[0])
+				allProjectRoles.push(veteranRole)
+			}
 		}
 	}
 
-	const oldVeteranId = member.roles.cache.find(r => r.name.endsWith("Veteran"))?.id,
-		newVeteranId = veteranRole?.id,
-		hasUpdatedVeteran = oldVeteranId !== newVeteranId,
-		yearsVeteran = Number(veteranRole?.name.match(/\d+/)?.[0]),
-
-	 newMemberRoles = [
+	const hasUpdatedVeteran = member.roles.cache.find(r => r.name.endsWith("Veteran"))?.id !== allProjectRoles.find(r => r.name.endsWith("Veteran"))?.id,
+		newMemberRoles = [
 		...new Set([
 			// Remove all translator roles
 			...member.roles.cache.filter(r => !isTranslatorRole(r) && r.id !== ids.roles.alerted).keys(),
@@ -411,10 +410,11 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 		member
 			.send({
 				embeds: [
-					new EmbedBuilder()
-						.setColor(Colors.Blurple)
-						.setTitle(`You've now been on the Hypixel project for ${yearsVeteran} year${yearsVeteran === 1 ? "" : "s"}!`)
-						.setDescription("As a reward, you've been given a special veteran role! Congratulations!"),
+					new EmbedBuilder({
+						color: Colors.Blurple,
+						title: `You've now been on the Hypixel project for ${yearsVeteran} year${yearsVeteran === 1 ? "" : "s"}!`,
+						description: "As a result, you've been given a special veteran role! Congratulations!"
+					})
 				],
 			})
 			.catch(() => null)
