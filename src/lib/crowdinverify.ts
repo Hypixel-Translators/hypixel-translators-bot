@@ -378,30 +378,7 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 	logEmbed.addFields({ name: "Profile", value: url })
 
 	// #region return message
-	dmEmbed
-		.setColor(Colors.Blurple)
-		.setTitle("You have successfully verified your Crowdin account")
-		.setDescription(
-			`${
-				allProjectRoles.length
-					? `You've been given all your project roles!${
-							hasUpdatedVeteran && veteranRole
-								? ` You've also been given the ${veteranRole} role due to how long you've been on the Hypixel project!`
-								: ""
-					  }`
-					: "Sadly, you didn't receive any roles because you don't translate for any of the projects we currently support.\nMake sure to refresh your roles using `/verify` once you have joined some of them. Keep in mind that if you recently sent a request to join one of the projects you will have to wait until it's accepted."
-			}\nHere's a few things you can do on the server now:\n\n - Check out <#${
-				ids.channels.gettingStarted
-			}> if you want to learn more about Crowdin;\n - Try out \`/prefix\` in <#${
-				ids.channels.bots
-			}> to get yourself a prefix with your country's flag;\n - Link your Minecraft account using \`/hypixelverify\` in <#${
-				ids.channels.bots
-			}>;\n - Check out all the projects we currently support by running \`/projects\` either here or in <#${
-				ids.channels.bots
-			}>;\n - Talk with the community in <#${ids.channels.offTopic}>\n\nWe hope you have fun on the server!`
-		)
-
-	if (sendLogs && hasUpdatedVeteran && newVeteranYears) {
+	if (!sendLogs && hasUpdatedVeteran && newVeteranYears) {
 		member
 			.send({
 				embeds: [
@@ -417,6 +394,28 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 	}
 
 	if (sendDms) {
+		dmEmbed
+			.setColor(Colors.Blurple)
+			.setTitle("You have successfully verified your Crowdin account")
+			.setDescription(
+				`${
+					allProjectRoles.length
+						? `You've been given all your project roles!${
+								hasUpdatedVeteran && veteranRole
+									? ` You've also been given the ${veteranRole} role due to how long you've been on the Hypixel project!`
+									: ""
+						  }`
+						: "Sadly, you didn't receive any roles because you don't translate for any of the projects we currently support.\nMake sure to refresh your roles using `/verify` once you have joined some of them. Keep in mind that if you recently sent a request to join one of the projects you will have to wait until it's accepted."
+				}\nHere's a few things you can do on the server now:\n\n - Check out <#${
+					ids.channels.gettingStarted
+				}> if you want to learn more about Crowdin;\n - Try out \`/prefix\` in <#${
+					ids.channels.bots
+				}> to get yourself a prefix with your country's flag;\n - Link your Minecraft account using \`/hypixelverify\` in <#${
+					ids.channels.bots
+				}>;\n - Check out all the projects we currently support by running \`/projects\` either here or in <#${
+					ids.channels.bots
+				}>;\n - Talk with the community in <#${ids.channels.offTopic}>\n\nWe hope you have fun on the server!`
+			)
 		member
 			.send({ embeds: [dmEmbed] })
 			.then(async () => await verifyLogs.send({ embeds: [logEmbed] }))
