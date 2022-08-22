@@ -141,13 +141,12 @@ export async function checkBuild(shouldPing: boolean) {
 	}
 }
 
-async function updateMessages(languages: LanguageStatus[], messages: Collection<Snowflake, Message>, channel: TextChannel) {
+async function updateMessages(languages: LanguageStatus[], messages: Collection<Snowflake, Message<true>>, channel: TextChannel) {
 	if (languages.length > messages.size) {
 		for (const message of messages.values()) message.delete()
-		const newMessages: Promise<Message>[] = []
-		for (let i = 0; i < languages.length; i++) newMessages.push(channel.send("Language statistics will be here shortly!"))
+		const newMessages = languages.map(() => channel.send("Language statistics will be here shortly!"))
 
-		return new Collection<Snowflake, Message>(await Promise.all(newMessages).then(msgs => msgs.map(msg => [msg.id, msg]))).reverse()
+		return new Collection<Snowflake, Message<true>>(await Promise.all(newMessages).then(msgs => msgs.map(msg => [msg.id, msg]))).reverse()
 	} else {
 		for (const message of messages.first(messages.size - languages.length)) {
 			await message.delete().catch(() => null)
