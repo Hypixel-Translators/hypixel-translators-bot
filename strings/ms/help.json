@@ -14,7 +14,7 @@
 	"cooldownField": "Cooldown",
 	"descriptions": {
 		"8ball": "Bola Magik 8 akan menjawab segala persoalan anda.",
-		"alert": "Alerts other proofreaders for issues in their translations",
+		"alert": "Memaklumkan kepada pembaca pruf yang lain tentang isu dalam penterjemahan mereka",
 		"feedback": "Membuka halaman isu GitHub kami, di mana anda boleh melaporkan masalah dan hantar maklum balas.",
 		"help": "Menunjukkan kepada anda semua perintah dan maklumat selebihnya tentang bot kami.",
 		"hypixelstats": "Menunjukkan kepada anda statistik asas Hypixel untuk pemain yang disebutkan.",
@@ -26,15 +26,15 @@
 		"mention": "Menyebut satu peranan bahasa dengan mesej pilihan.",
 		"minecraft": "Mencari sejarah nama atau kulit pemain Minecraft yang spesifik. Perintah ini boleh digunakan dengan /hypixelverify, yang membolehkan anda untuk cari maklumat pengguna yang ditentukan jika mereka telah disahkan. Parameter `user` akan sentiasa diutamakan daripada `username` dan kedua-duanya bergantung kepada pilihan anda jika anda telah disahkan, kalau tak, sekurang-kurangnya satu diperlukan.",
 		"ping": "Meberikan ping bot kepada anda.",
-		"poll": "Membuatkan atau menguruskan pengundian dalam server. Tersedia kepada Pembaca Pruf Hypixel dan keatas. Semua undian dalam pengundian yang dibuat dengan perintah ini akan dirahsiakan sehingga pengundian tamat dan nama pengundi tak akan didedahkan, hanya bilangan undian yang akan dipaparkan.",
-		"prefix": "Lets you pick an appropriate prefix for your language(s). In order to get a custom prefix, execute `/prefix` and provide the regional code of your country's flag or its name on the `flags` parameter. You can add as many flags as you wish, separated by a space.",
+		"poll": "Membuat atau mengurus pengundian dalam pelayan. Tersedia kepada Pembaca Pruf Hypixel dan keatas. Semua undian dalam pengundian yang dibuat dengan perintah ini akan dirahsiakan sehingga pengundian tamat dan nama pengundi tak akan didedahkan, hanya bilangan undian yang akan dipaparkan.",
+		"prefix": "Memberikan kepada anda awalan yang sesuai untuk bahasa anda. Untuk mendapatkan awalan yang tersendiri, laksanakan `/prefix` dan berikan kod kawasan bendera negara anda atau namanya pada parameter `flags`. Anda pun boleh tambah berapa banyak bendera yang anda mahu yang dipisahkan dengan jarak (space).",
 		"profile": "Memberikan kepada anda pautan profil Crowdin jika ia disimpan dalam pangkalan data kami. Jika tidak, anda boleh laksanakan `/help verify` untuk mempelajari bagaimana untuk simpankan profil anda dan kemas kini role anda.",
-		"projects": "Memberikan kepada anda pautan dan maklumat tentang semua projek penterjemahan yang kami sokong dalam server.",
-		"quote": "Shows a funny/weird/wise quote from the server.",
+		"projects": "Memberi anda pautan dan maklumat tentang semua projek penterjemahan yang kami sokong dalam pelayan.",
+		"quote": "Menunjukkan sebuah petikan lawak/pelik/bijak daripada pelayan.",
 		"rank": "Memberikan kepada anda XP semasa untuk anda sahaja atau mana-mana pemain yang diberi.",
 		"settings": "Changes or shows your settings on the bot",
 		"tag": "Menghantar mesej pra tetap, membenarkan anda untuk memberitahu seorang ahli yang spesifik semasa menghantarkannya.",
-		"translate": "Gives you useful information on how to translate the bot.",
-		"verify": "Memeriksa perubahan pada profil Crowdin anda secara automatik dan memberikan anda role yang sesuai. Jika profil anda tidak disimpan dalam pangkalan data kami, anda boleh memberikannya sebagai hujahan pada perintah tersebut. Untuk periksa profil anda telah disimpan, jalankan `/profile`. Pastikan anda telah mengaktifkan DM dari server ini supaya bot boleh menghantarkan mesej kepada anda."
+		"translate": "Memberikan kepada anda maklumat berguna tentang bagaimana untuk menterjemahkan Bot.",
+		"verify": "Memeriksa perubahan pada profil Crowdin anda secara automatik dan memberikan anda role yang sesuai. Jika profil anda tidak disimpan dalam pangkalan data kami, anda boleh memberikannya sebagai argumen pada perintah tersebut. Untuk periksa jika profil anda telah disimpan, jalankan `/profile`. Pastikan anda telah mengaktifkan DM dari pelayan ini supaya bot boleh menghantarkan mesej kepada anda."
 	}
 }
