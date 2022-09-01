@@ -2,8 +2,8 @@
 	"moduleName": "Awalan",
 	"errors": {
 		"noLanguages": "Nampaknya, anda tidak ada role bahasa! Tolong hubungi admin jika anda percaya ini suatu ralat.",
-		"trNoRoles": "Kami sedar anda seorang penterjemah tetapi tidak ada mana-mana role bahasa.",
-		"error": "Gagal untuk mengubah nama panggilan. Anda boleh tiru nama gelaran di bawah dan aplikasikan sendiri.",
+		"trNoRoles": "Kami perasan bahawa anda adalah seorang penterjemah tetapi tidak mempunyai sebarang role bahasa.",
+		"error": "Gagal untuk mengubah nama panggilan. Anda boleh menyalin nama gelaran di bawah dan terapkan sendiri.",
 		"confirmedNoFlags": "Anda mengesahkan tetapi anda tidak bertindak balas terhadap sebarang bendera, ",
 		"cancelled": "Anda membatalkan perubahan nama panggilan anda, ",
 		"alreadyThis": "Anda sudah memiliki nama gelaran ini, ",

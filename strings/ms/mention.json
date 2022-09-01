@@ -1,4 +1,4 @@
 {
-	"errorNoPing": "Anda tidak mempunyai role pembaca pruf bahasa tersebut, {role, select, translator {jadi anda tak boleh menyebut role penterjemahnya} proofreader {jadi anda tak boleh menyebutnya} other {jadi anda tak boleh menyebut keseluruhan bahasa tersebut}}. Hubungi admin server jika anda sangat memerlukannya.",
+	"errorNoPing": "Anda tidak mempunyai role pembaca pruf bahasa tersebut, {role, select, translator {jadi anda tak boleh menyebut role penterjemahnya} proofreader {jadi anda tak boleh menyebutnya} other {jadi anda tak boleh menyebut keseluruhan bahasa tersebut}}. Hubungi pentadbir pelayan jika anda sangat memerlukannya.",
 	"success": "Mesej berjaya dihantar!"
 }

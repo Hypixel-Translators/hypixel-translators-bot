@@ -1,6 +1,6 @@
 {
 	"moduleName": "Projek Penterjemahan",
-	"allProjects": "Di sini terdapat semua projek yang kini kami sokong pada server!",
+	"allProjects": "Di sini terdapat semua projek yang kini kami sokong di pelayan ini!",
 	"description": "Jika anda sudah ada dekat beberapa projek ini, tetapi tidak ada role anda lagi, jalankan `/verify [profileURL]` untuk mendapatkannya!",
 	"projectInfo": "Anda boleh menjumpai pautan ke projek %%project%% [sini](%%link%%). Untuk maklumat lanjut, laksanakan %%command%%.",
 	"alreadyJoined": "Anda sudah menyertai projek ini!",

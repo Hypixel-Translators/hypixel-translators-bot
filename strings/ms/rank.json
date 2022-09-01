@@ -5,7 +5,7 @@
 	"youNotRanked": "Anda takde kedudukan lagi!",
 	"userNotRanked": "Pengguna tersebut belum ada kedudukan lagi!",
 	"howRank": "Untuk ada kedudukan, anda kena bercakap dekat perbualan!",
-	"textProgress": "%%currentXp%%/%%xpNeeded%% | {messages, plural, one {# Message} other {# Messages}}",
+	"textProgress": "%%currentXp%%/%%xpNeeded%% | {messages, plural, other {# Mesej}}",
 	"youLevel": "Anda di tahap %%level%% dan anda berada pada kedudukan #%%rank%% pada papan kedudukan!",
 	"userLevel": "%%user%% di tahap %%level%% dan dia berada pada kedudukan #%%rank%% pada papan kedudukan!"
 }

@@ -1,7 +1,7 @@
 {
 	"moduleName": "Pengesahan Hypixel",
 	"success": "Anda berjaya mengesahkan diri anda sebagai %%player%%!",
-	"role": "Anda diberi 'role' %%role%% disebabkan pangkat anda di server.",
+	"role": "Anda diberi 'role' %%role%% disebabkan pangkat anda di pelayan.",
 	"alreadyVerified": "Anda sudah disahkan!",
 	"nameChangeDisclaimer": "Ingat bahawa anda tak perlu mengesahkan diri anda semula kalau anda tukar nama!",
 	"error": "Kami tak boleh mengesahkan anda kerana anda tidak menetapkan Discord anda di Hypixel dengan betul!",

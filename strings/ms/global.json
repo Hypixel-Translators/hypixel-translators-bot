@@ -1,10 +1,10 @@
 {
 	"staffDm": {
-		"confirmSend": "Jika anda mengesahkan ini, apa-apa mesej anda hantarkan ke sini dalam 48 jam dari sekarang anda dihantar ke kakitangan tanpa apa-apa pengesahan.",
-		"noConfirmWarn": "Apa-apa mesej anda hantar ke sini dalam masa 48 jam dari sekarang akan dihantar ke kakitangan tanpa apa-apa pengesahan.",
+		"confirmSend": "Jika anda mengesahkan ini, sebarang mesej yang anda hantarkan ke sini dalam 48 jam dari sekarang anda dihantar ke kakitangan tanpa apa-apa pengesahan.",
+		"noConfirmWarn": "Sebarang mesej yang anda hantar ke sini dalam masa 48 jam dari sekarang akan dihantar ke kakitangan tanpa apa-apa pengesahan.",
 		"attachmentsWarn": "Lampiran juga akan disertakan.",
-		"attachmentSent": "{number, plural, one {Attachment} other {Attachments}} sent",
-		"confirmation": "Betul ke anda ingin hantar mesej ini kepada kakitangan?",
+		"attachmentSent": "{number, plural, other {Lampiran}} dihantar",
+		"confirmation": "Anda pasti anda ingin menghantar mesej ini kepada kakitangan?",
 		"messageSent": "Mesej dihantar kepada kakitangan",
 		"dmCancelled": "Mesej ini tidak akan dihantar.",
 		"resendInfo": "Jika anda masih ingin bercakap dengan kakitangan, hantar semula dan klik butang ✅ untuk mengesahkan."
@@ -21,14 +21,14 @@
 		"falseUUID": "Tak dapat menjumpai pemain dengan UUID tersebut!",
 		"noPlayer": "Pemain tersebut tak pernah masuk Hypixel!",
 		"notVerified": "Pemain tersebut belum lagi menyambungkan akaun Hypixel dia lagi!",
-		"disabled": "Perintah tersebut dinyahaktifkan sementara.",
+		"disabled": "Perintah tersebut telah dinyahaktifkan buat sementara waktu.",
 		"noAccess": "Anda tidak dibenarkan untuk melaksanakan perintah ini!",
 		"noPermission": "Anda tidak dibenarkan untuk melaksanakan perintah ini di saluran ini!",
 		"apiError": "Sesuatu masalah berlaku semasa menghubungi API!",
 		"wrongLink": "Salah pautan!"
 	},
 	"roles": {
-		"noLevel": "Anda perlu menjadi sekurang-kurangnya perbualan tahap %%level%% untuk menerima role ini! Anda boleh periksa tahap perbualan terkini anda menggunakan %%command%% di %%channel%%.",
+		"noLevel": "Anda perlu sekurang-kurangnya berada pada tahap perbualan %%level%% untuk menerima role ini! Anda boleh periksa tahap perbualan terkini anda menggunakan %%command%% di %%channel%%.",
 		"successGive": "Berjaya memberikan anda role %%role%% !",
 		"successTake": "Berjaya menarik balik role %%role%% daripada anda!"
 	},
@@ -41,12 +41,12 @@
 	"tips": {
 		"ib": "Adakah anda pernah mencuba bahasa Inhale Banana? Tukar bahasa anda dengan menggunakan %%langIb%%!",
 		"translators": "Saya memerlukan penterjemah! Ketahui cara menjadi penterjemah bot dengan melaksanakan %%translate%%.",
-		"prefix": "Nak tak ada awalan yang menarik dekat nama panggilan anda? Laksanakan %%prefix%% pada %%bots%% dan ikuti arahan! Boleh digunakan oleh semua penterjemah Hypixel.",
+		"prefix": "Ingin mempunyai awalan yang menarik pada nama panggilan anda? Laksanakan %%prefix%% di %%bots%% dan ikuti arahan! Boleh digunakan oleh semua penterjemah Hypixel.",
 		"enen": "Tolong tukarkan pautan anda ke en-en!",
 		"xp": "Anda mendapat jumlah XP secara rawak setiap minit semasa anda berbual, yang akhirnya akan membuat anda naik tahap.",
 		"guide": "Adakah anda tahu bahawa kita mempunyai panduan bagaimana memulakan Crowdin, tersedia untuk semua penterjemah? Lihat di %%gettingStarted%%. ada beberapa petua yang berguna!",
-		"twitter": "Anda dah ikuti kami dekat akaun twitter ke? Lihatlah [sini]%%twitter%%!",
-		"rulesInfo": "%%rules%% dan %%serverInfo%% ada semua maklumat yang anda perlukan untuk server ini!",
+		"twitter": "Anda sudah mengikuti akaun Twitter kami? Lihat di %%twitter%%!",
+		"rulesInfo": "%%rules%% dan %%serverInfo%% mengandungi semua maklumat yang anda perlukan untuk pelayan ini!",
 		"fixTranslation": "Terdapat kesilapan dalam terjemahan? Hubungi pembaca pruf untuk bahasa anda atau beritahu orang di saluran terjemahan.",
 		"pinnedInfo": "Adakah anda tahu yang hampir semua saluran ada maklumat penting yang dipinkan? Anda patut tengok setiap kali anda lawati satu saluran!",
 		"hypixelStats": "Anda boleh lihat maklumat tentang pemain tertentu di Hypixel dengan melaksanakan %%hypixelstats%%!",
