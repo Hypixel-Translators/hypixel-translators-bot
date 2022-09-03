@@ -309,7 +309,7 @@ export async function awaitPoll(poll: Poll) {
 		pollDb = await db
 			.collection<Poll>("polls")
 			.findOneAndUpdate({ messageId: poll.messageId, channelId: poll.channelId }, { $set: { ended: true } })
-	if (!message || !pollDb.value) return
+	if (!message || !pollDb.value || pollDb.value.ended) return
 	const totalVoteCount = pollDb.value.options.reduce((acc, o) => acc + o.votes.length, 0),
 		embed = new EmbedBuilder({
 			color: Colors.Blurple,
