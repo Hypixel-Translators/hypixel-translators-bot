@@ -34,7 +34,7 @@
 	},
 	"devDependencies": {
 		"@types/node": "^18.7.15",
-		"@types/node-cron": "^3.0.3",
+		"@types/node-cron": "^3.0.4",
 		"@types/uuid": "^8.3.4",
 		"@typescript-eslint/eslint-plugin": "^5.36.2",
 		"@typescript-eslint/parser": "^5.36.2",
