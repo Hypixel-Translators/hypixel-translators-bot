@@ -32,7 +32,7 @@
 		"node": "18.x"
 	},
 	"devDependencies": {
-		"@types/node": "^18.7.15",
+		"@types/node": "^18.7.16",
 		"@types/node-cron": "^3.0.4",
 		"@typescript-eslint/eslint-plugin": "^5.36.2",
 		"@typescript-eslint/parser": "^5.36.2",
