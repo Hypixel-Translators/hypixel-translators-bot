@@ -1,4 +1,5 @@
 // This file contains a bunch of functions used across the bot on multuple commands.
+import { randomUUID } from "node:crypto"
 import { readdirSync } from "node:fs"
 import process from "node:process"
 import { setInterval } from "node:timers"
@@ -20,7 +21,6 @@ import {
 	LocaleString,
 } from "discord.js"
 import puppeteer from "puppeteer"
-import { v4 } from "uuid"
 
 import { db } from "./dbclient"
 
@@ -302,7 +302,7 @@ export async function getBrowser() {
 	}, 5000)
 
 	//* Open new connection and return the browser with connection id.
-	const browserUUID = v4()
+	const browserUUID = randomUUID()
 	activeConnections.push(browserUUID)
 	return { pupBrowser: browser, uuid: browserUUID }
 }
