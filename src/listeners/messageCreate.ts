@@ -27,13 +27,6 @@ import type { Stream } from "node:stream"
 client.on("messageCreate", async message => {
 	if (!db) return void cancelledEvents.push({ listener: "messageCreate", args: [message] })
 
-	// Delete thread created messages
-	if (
-		message.type === MessageType.ThreadCreated &&
-		((message.channel as TextChannel).name.endsWith("-review-strings") || message.channelId === ids.channels.suggestions)
-	)
-		return void (await message.delete())
-
 	if (message.system) return
 
 	// Delete messages that contain empty spoilers (Discord bug)
@@ -270,7 +263,6 @@ client.on("messageCreate", async message => {
 	if (message.channelId === ids.channels.suggestions) {
 		await message.react("✅")
 		await message.react("❌")
-		await message.startThread({ name: `${message.author.username}'s suggestion`, reason: "New suggestion was posted" })
 	}
 
 	/**
