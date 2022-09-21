@@ -22,7 +22,7 @@
 		"@messageformat/core": "^3.0.1",
 		"canvas": "^2.10.1",
 		"discord.js": "^14.2.0",
-		"language-flag-colors": "^2.1.1",
+		"language-flag-colors": "^2.1.2",
 		"mongodb": "^4.10.0",
 		"node-cron": "^3.0.2",
 		"puppeteer": "^18.0.3",
