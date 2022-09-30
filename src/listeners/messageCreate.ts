@@ -7,7 +7,6 @@ import {
 	TextChannel,
 	ComponentType,
 	escapeMarkdown,
-	MessageType,
 	ButtonStyle,
 	ButtonBuilder,
 	ActionRowBuilder,
@@ -161,7 +160,7 @@ client.on("messageCreate", async message => {
 		await crowdinVerify(message.member!, message.content.match(/(https:\/\/)?(?:[a-z]{2}\.)?crowdin\.com\/profile\/\S+/gi)?.[0], true)
 		await message.delete().catch(() => null)
 		await (message.channel as TextChannel).bulkDelete(
-			(await message.channel.messages.fetch()).filter(msgs => msgs.author.id === message.author.id)
+			(await (message.channel as TextChannel).messages.fetch()).filter(msgs => msgs.author.id === message.author.id)
 		)
 	}
 
