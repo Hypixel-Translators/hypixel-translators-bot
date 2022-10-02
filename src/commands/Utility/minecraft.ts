@@ -175,7 +175,7 @@ const command: Command = {
 					author: { name: getString("moduleName") },
 					title: isOwnUser ? getString("skin.yourSkin") : getString("skin.userSkin", { variables: { user: (await getPlayer(uuid)).name } }),
 					description: uuidDb && !isOwnUser ? getString("skin.isLinked", { variables: { user: `<@!${uuidDb.id}>` } }) : "",
-					image: { url: `https://crafatar.com/renders/body/${uuid}?overlay` },
+					image: { url: `https://visage.surgeplay.com/full/1024/${uuid}` },
 					footer: { text: randomTip, iconURL: member.displayAvatarURL({ extension: "png" }) },
 				})
 				await interaction.editReply({ embeds: [skinEmbed] })
