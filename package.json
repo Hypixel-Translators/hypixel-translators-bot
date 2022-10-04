@@ -34,7 +34,7 @@
 	"devDependencies": {
 		"@types/node": "^18.8.0",
 		"@types/node-cron": "^3.0.4",
-		"@typescript-eslint/eslint-plugin": "^5.38.1",
+		"@typescript-eslint/eslint-plugin": "^5.39.0",
 		"@typescript-eslint/parser": "^5.38.1",
 		"dotenv": "^16.0.3",
 		"eslint": "^8.24.0",
