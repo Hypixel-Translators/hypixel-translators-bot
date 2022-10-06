@@ -41,7 +41,7 @@ client.on("messageCreate", async message => {
 
 	// Publish message if sent in bot-updates or in a project-updates channel or if it's a tweet
 	if (
-		message.channel.type === ChannelType.GuildNews &&
+		message.channel.type === ChannelType.GuildAnnouncement &&
 		!message.flags.has(MessageFlags.Ephemeral) &&
 		!message.components.length &&
 		(message.channel.id === ids.channels.botUpdates ||
