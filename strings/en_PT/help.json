@@ -14,7 +14,7 @@
 	"cooldownField": "Cooldown",
 	"descriptions": {
 		"8ball": "Th' Magic 8 Ball that will answer all yer questions.",
-		"alert": "Alerts other proofreaders for issues in their translations",
+		"alert": "Forewarns th' other proofreaders fer snags in their translations",
 		"feedback": "Opens our GitHub issues page, where ye can report problems an' send feedback.",
 		"help": "Shows ye all available commands an' other info about the bot.",
 		"hypixelstats": "Shows ye basic Hypixel stats fer th' provided pirate.",
