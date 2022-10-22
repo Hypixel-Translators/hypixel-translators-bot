@@ -2,7 +2,7 @@
 	"moduleName": "Translate th' Bot",
 	"alreadyTranslator": "I see ye already be a translator. Here be what ye may be lookin' fer:",
 	"projectLink": "Ye may find th' link t' th' project [here](%%link%%).",
-	"question": "Have a question?",
+	"question": "'Ave a question?",
 	"askTranslators": "Feel free t' ask anything 'bout th' project on %%botTranslators%%. Do nah forget t' send a link t' th' string ye be referrin' t'!",
 	"newCrowdin": "New t' Crowdin?",
 	"checkGuide": "Check out our guide wit' a bunch o' useful Crowdin tools an' tips t' get started! Ye can find it on %%gettingStarted%%.",
