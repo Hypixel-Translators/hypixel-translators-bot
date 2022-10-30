@@ -1,0 +1,23 @@
+name: Compile and lint
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+
+jobs:
+  lintCompile:
+    name: Compile and lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "yarn"
+      - name: Install dependencies and compile
+        run: yarn
+      - name: Lint
+        run: yarn lint:ci
