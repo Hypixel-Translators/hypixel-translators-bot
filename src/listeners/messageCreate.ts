@@ -87,6 +87,7 @@ client.on("messageCreate", async message => {
 			ids.categories.important,
 			ids.categories.archived,
 			ids.categories.verification,
+			ids.channels.suggestions,
 			ids.channels.bots,
 			ids.channels.staffAnnouncements,
 		],
