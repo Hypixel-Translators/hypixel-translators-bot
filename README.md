@@ -1,4 +1,4 @@
-# Hypixel Translators Bot [![Build](https://github.com/Hypixel-Translators/hypixel-translators-bot/actions/workflows/build.yml/badge.svg)](https://github.com/Hypixel-Translators/hypixel-translators-bot/actions/workflows/build.yml) [![Twitter](https://img.shields.io/twitter/follow/HTranslators?style=social)](https://twitter.com/HTranslators)
+# Hypixel Translators Bot [![Compile and lint](https://github.com/Hypixel-Translators/hypixel-translators-bot/actions/workflows/lintCompile.yml/badge.svg)](https://github.com/Hypixel-Translators/hypixel-translators-bot/actions/workflows/lintCompile.yml) [![Twitter](https://img.shields.io/twitter/follow/HTranslators?style=social)](https://twitter.com/HTranslators)
 
 [![Join our Discord server](https://discordapp.com/api/guilds/549503328472530974/widget.png?style=banner2)](https://discord.gg/rcT948A)
 
