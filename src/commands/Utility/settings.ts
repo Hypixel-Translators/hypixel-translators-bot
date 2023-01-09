@@ -7,7 +7,7 @@ import { transformDiscordLocale } from "../../lib/util"
 
 import type { Command, CommandStrings, GetStringFunction } from "../../lib/imports"
 
-type Setting = typeof settings[number]["value"]
+type Setting = (typeof settings)[number]["value"]
 
 const settings = as<ApplicationCommandOptionChoiceData[]>()([
 		{ name: "Send messages upon level up", value: "lvlUpMsg" },
