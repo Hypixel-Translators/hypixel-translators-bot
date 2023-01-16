@@ -38,7 +38,7 @@
 		"func-call-spacing": "error",
 		"func-name-matching": "error",
 		"import/order": ["error", {
-			"groups": [	"builtin", "index", "external", "internal", "sibling", "parent", "type"],
+			"groups": [	"builtin", "external", "internal", "sibling", "index", "parent", "type"],
 			"newlines-between": "always",
 			"alphabetize": { "order": "asc", "caseInsensitive": true }
 		}],
