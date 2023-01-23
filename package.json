@@ -18,7 +18,7 @@
 		"url": "git://github.com/Hypixel-Translators/hypixel-translators-bot.git"
 	},
 	"dependencies": {
-		"@crowdin/crowdin-api-client": "^1.21.0",
+		"@crowdin/crowdin-api-client": "^1.21.1",
 		"@messageformat/core": "^3.0.1",
 		"canvas": "^2.11.0",
 		"discord.js": "^14.7.1",
