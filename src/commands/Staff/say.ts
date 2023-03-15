@@ -1,4 +1,12 @@
-import { Constants, blockQuote, type GuildTextBasedChannel, EmbedBuilder, ApplicationCommandOptionType } from "discord.js"
+import {
+	Constants,
+	blockQuote,
+	type GuildTextBasedChannel,
+	EmbedBuilder,
+	ApplicationCommandOptionType,
+	ChannelType,
+	TextBasedChannelTypes,
+} from "discord.js"
 
 import { colors, ids } from "../../config.json"
 import { generateTip } from "../../lib/util"
@@ -11,7 +19,7 @@ const command: Command = {
 	options: [
 		{
 			type: ApplicationCommandOptionType.Channel,
-			channelTypes: Constants.TextBasedChannelTypes,
+			channelTypes: Constants.TextBasedChannelTypes.filter(t => t !== ChannelType.DM) as Exclude<TextBasedChannelTypes, ChannelType.DM>[],
 			name: "channel",
 			description: "The channel to send the message in",
 			required: true,

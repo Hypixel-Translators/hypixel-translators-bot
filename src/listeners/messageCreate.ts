@@ -246,7 +246,7 @@ client.on("messageCreate", async message => {
 				})
 			if (message.attachments.size > 1 || !(message.attachments.first()?.contentType?.startsWith("image") ?? true)) {
 				const images: (BufferResolvable | Stream)[] = []
-				message.attachments.forEach(file => images.push(file.attachment))
+				message.attachments.forEach(file => images.push(file.url))
 				staffMsg.setTitle("View attachments")
 				dmEmbed.setTitle(getGlobalString("staffDm.attachmentSent", { variables: { number: message.attachments.size } }))
 				await staffBots.send({ content: `/dm user:@${message.author.tag} message:`, embeds: [staffMsg], files: images })
