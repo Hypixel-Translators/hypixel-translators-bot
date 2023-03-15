@@ -99,10 +99,10 @@
     semver "^7.3.5"
     tar "^6.1.11"
 
-"@messageformat/core@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@messageformat/core/-/core-3.0.1.tgz#191e12cf9643704d1fd32e592a3fbdc194dd588e"
-  integrity sha512-yxj2+0e46hcZqJfNf0ZYbC2q6WlcGoh4g11mCyRtTueR0AD8F9z4JMYAS1aOiFG8Vl1LZg/h5hZHKmWTAyZq8g==
+"@messageformat/core@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@messageformat/core/-/core-3.1.0.tgz#d4d2f5c3555228a6b5980b122a02b53dfc6458bd"
+  integrity sha512-UxAnjecnRG4u2iaggwIyylYPHmk5BTErJcKmWyAKTXqYgSW1bFLp4D7fIzuh6bk17Qfcmf3qtufdrstCB23nBA==
   dependencies:
     "@messageformat/date-skeleton" "^1.0.0"
     "@messageformat/number-skeleton" "^1.0.0"
