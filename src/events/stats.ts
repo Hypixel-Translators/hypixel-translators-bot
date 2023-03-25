@@ -5,15 +5,15 @@ import { client, crowdin } from "../index"
 import { db } from "../lib/dbclient"
 import { closeConnection, type CrowdinProject, getBrowser, type MongoLanguage, type LanguageStatus, type Stats } from "../lib/util"
 
-export async function stats(manual = false) {
+export function stats(manual = false) {
 	const m = new Date().getUTCMinutes()
 	if (manual) {
-		for (const id of Object.values(ids.projects)) await updateProjectStatus(id)
+		for (const id of Object.values(ids.projects)) updateProjectStatus(id)
 		console.log("All stats have been manually updated.")
-	} else if ([0, 20, 40].includes(m)) await updateProjectStatus(ids.projects.hypixel)
+	} else if ([0, 20, 40].includes(m)) updateProjectStatus(ids.projects.hypixel)
 	else if (m === 10 || m === 30 || m === 50) {
-		await updateProjectStatus(ids.projects.quickplay)
-		await updateProjectStatus(ids.projects.bot)
+		updateProjectStatus(ids.projects.quickplay)
+		updateProjectStatus(ids.projects.bot)
 	}
 }
 
