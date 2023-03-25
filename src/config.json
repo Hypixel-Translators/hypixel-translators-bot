@@ -23,7 +23,7 @@
 		"RANDOM_USER's messages",
 		"project statistics"
 	],
-	"playingStatuses": ["with commands", "with RANDOM_USER", "Crowdin", "Hypixel", "Quickplay", "SkyblockAddons", "with myself"],
+	"playingStatuses": ["with commands", "with RANDOM_USER", "Crowdin", "Hypixel", "Quickplay", "with myself"],
 	"ids": {
 		"guilds": {
 			"main": "549503328472530974",
@@ -36,7 +36,6 @@
 			"important": "613015467984158742",
 			"main": "549503328472530975",
 			"hypixel": "549503328472530977",
-			"sba": "748585307825242322",
 			"bot": "763131996163407902",
 			"quickplay": "646083561769926668",
 			"archived": "619190456911134750"
@@ -85,11 +84,9 @@
 			"mvpPlusPlus": "808032672160153641",
 			"botTranslator": "749390356763902114",
 			"qpTranslator": "645709843436404767",
-			"sbaTranslator": "748268753405476905",
 			"hypixelTranslator": "569839517444341771",
 			"botPf": "752519784238678097",
 			"qpPf": "645709808745578496",
-			"sbaPf": "748269222181863506",
 			"hypixelPf": "569839580971401236",
 			"youtuber": "808032689709514852",
 			"hypixelGm": "822787676482699297",
@@ -97,7 +94,6 @@
 			"hypixelStaff": "715674953697198141",
 			"botManager": "752541221980733571",
 			"qpManager": "645709877536096307",
-			"sbaManager": "748269219619274893",
 			"hypixelManager": "551758391127834625",
 			"staff": "768435276191891456",
 			"mod": "621071221462663169",
@@ -110,7 +106,6 @@
 		"projects": {
 			"hypixel": 128098,
 			"quickplay": 369653,
-			"skyblockaddons": 369493,
 			"bot": 436418
 		}
 	}

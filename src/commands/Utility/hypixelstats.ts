@@ -433,8 +433,5 @@ export const query = gql`
 				name
 			}
 		}
-		skyblock {
-			profiles(player_name: $uuid)
-		}
 	}
 `

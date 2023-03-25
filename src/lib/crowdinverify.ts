@@ -8,7 +8,7 @@ import { closeConnection, getBrowser, type MongoLanguage, type Stats } from "./u
 import { colors, ids } from "../config.json"
 import { client } from "../index"
 
-type ValidProjects = "Hypixel" | "Quickplay" | "Bot" | "SkyblockAddons"
+type ValidProjects = "Hypixel" | "Quickplay" | "Bot"
 
 const projectNames: {
 	[id: string]: ValidProjects
@@ -16,7 +16,6 @@ const projectNames: {
 	128098: "Hypixel",
 	369653: "Quickplay",
 	436418: "Bot",
-	369493: "SkyblockAddons",
 }
 
 /**

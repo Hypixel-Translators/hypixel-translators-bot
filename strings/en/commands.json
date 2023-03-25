@@ -70,11 +70,7 @@
 			"page": {
 				"name": "page",
 				"description": "The help page to open",
-				"choices": [
-					"Main Page",
-					"Tools & Utilities",
-					"Information Commands"
-				]
+				"choices": ["Main Page", "Tools & Utilities", "Information Commands"]
 			}
 		},
 		"hypixelstats": {
@@ -431,7 +427,6 @@
 					"proofreader": "How to get proofreader on the Hypixel project",
 					"minecraft": "Minecraft Crowdin Project",
 					"quickplay": "Quickplay links",
-					"skyblockaddons": "SkyblockAddons links",
 					"thread": "Discord server thread",
 					"twitter": "Hypixel Translators Community Twitter"
 				}

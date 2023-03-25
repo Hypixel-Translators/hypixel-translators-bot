@@ -17,7 +17,7 @@ const command: Command = {
 			required: true,
 		},
 	],
-	roleWhitelist: [ids.roles.staff, ids.roles.hypixelManager, ids.roles.sbaManager, ids.roles.qpManager, ids.roles.botManager],
+	roleWhitelist: [ids.roles.staff, ids.roles.hypixelManager, ids.roles.qpManager, ids.roles.botManager],
 	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev, ids.channels.managers],
 	async execute(interaction) {
 		if (!interaction.inCachedGuild()) return

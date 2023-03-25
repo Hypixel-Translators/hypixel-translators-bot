@@ -52,10 +52,6 @@ const command: Command = {
 				.withFetchAll()
 				.getProjectProgress(ids.projects.quickplay)
 				.then(res => res.data.find(language => language.data.languageId === lang.id)?.data ?? null),
-			sbaData = await crowdin.translationStatusApi
-				.withFetchAll()
-				.getProjectProgress(ids.projects.skyblockaddons)
-				.then(res => res.data.find(language => language.data.languageId === lang.id)?.data ?? null),
 			botData = await crowdin.translationStatusApi
 				.withFetchAll()
 				.getProjectProgress(ids.projects.bot)
@@ -65,7 +61,6 @@ const command: Command = {
 		const approvalProgress = Math.max(
 			hypixelData?.approvalProgress ?? 0,
 			quickplayData?.approvalProgress ?? 0,
-			sbaData?.approvalProgress ?? 0,
 			botData?.approvalProgress ?? 0
 		)
 		if (approvalProgress >= 90) color = colors.success
@@ -116,26 +111,6 @@ const command: Command = {
 						approved: quickplayData.phrases.approved,
 						total: quickplayData.phrases.total,
 						totalNumber: parseToNumberString(quickplayData.phrases.total, getString)[1],
-					},
-				})}`,
-			})
-		}
-		if (sbaData) {
-			embed.addFields({
-				name: "SkyblockAddons",
-				value: `${getString("translated", {
-					variables: {
-						percentage: sbaData.translationProgress,
-						translated: sbaData.phrases.translated,
-						total: sbaData.phrases.total,
-						totalNumber: parseToNumberString(sbaData.phrases.total, getString)[1],
-					},
-				})}\n${getString("approved", {
-					variables: {
-						percentage: sbaData.approvalProgress,
-						approved: sbaData.phrases.approved,
-						total: sbaData.phrases.total,
-						totalNumber: parseToNumberString(sbaData.phrases.total, getString)[1],
 					},
 				})}`,
 			})

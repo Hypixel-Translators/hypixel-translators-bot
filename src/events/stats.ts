@@ -10,10 +10,8 @@ export async function stats(manual = false) {
 	if (manual) {
 		for (const id of Object.values(ids.projects)) await updateProjectStatus(id)
 		console.log("All stats have been manually updated.")
-	} else if ([0, 20, 40].includes(m)) {
-		await updateProjectStatus(ids.projects.hypixel)
-		await updateProjectStatus(ids.projects.skyblockaddons)
-	} else if (m === 10 || m === 30 || m === 50) {
+	} else if ([0, 20, 40].includes(m)) await updateProjectStatus(ids.projects.hypixel)
+	else if (m === 10 || m === 30 || m === 50) {
 		await updateProjectStatus(ids.projects.quickplay)
 		await updateProjectStatus(ids.projects.bot)
 	}

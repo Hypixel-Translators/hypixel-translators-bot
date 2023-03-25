@@ -13,7 +13,7 @@ const command: Command = {
 	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev, ids.channels.adminBots],
 	async execute(interaction, getString: GetStringFunction) {
 		const member = interaction.client.guilds.cache.get(ids.guilds.main)!.members.cache.get(interaction.user.id)!
-		let joinedHypixel: string, joinedQuickplay: string, joinedSba: string, joinedBot: string
+		let joinedHypixel: string, joinedQuickplay: string, joinedBot: string
 		if (
 			member.roles.cache.find(
 				role => role.name === "Hypixel Translator" || role.name === "Hypixel Proofreader" || role.name === "Hypixel Manager"
@@ -28,14 +28,6 @@ const command: Command = {
 		)
 			joinedQuickplay = `<:vote_yes:839262196797669427> **${getString("alreadyJoined")}**`
 		else joinedQuickplay = `<:vote_no:839262184882044931> **${getString("notJoined")}**`
-		if (
-			member.roles.cache.find(
-				role =>
-					role.name === "SkyblockAddons Translator" || role.name === "SkyblockAddons Proofreader" || role.name === "SkyblockAddons Manager"
-			)
-		)
-			joinedSba = `<:vote_yes:839262196797669427> **${getString("alreadyJoined")}**`
-		else joinedSba = `<:vote_no:839262184882044931> **${getString("notJoined")}**`
 		if (member.roles.cache.find(role => role.name === "Bot Translator" || role.name === "Bot Proofreader" || role.name === "Bot Manager"))
 			joinedBot = `<:vote_yes:839262196797669427> **${getString("alreadyJoined")}**`
 		else joinedBot = `<:vote_no:839262184882044931> **${getString("notJoined")}**`
@@ -64,16 +56,6 @@ const command: Command = {
 							command: "`/tag quickplay`",
 						},
 					})}\n${joinedQuickplay}`,
-				},
-				{
-					name: "SkyblockAddons",
-					value: `${getString("projectInfo", {
-						variables: {
-							project: "**SkyblockAddons**",
-							link: "https://crowdin.com/project/skyblockaddons",
-							command: "`/tag skyblockaddons`",
-						},
-					})}\n${joinedSba}`,
 				},
 				{
 					name: "Hypixel Translators Bot",

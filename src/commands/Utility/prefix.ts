@@ -31,11 +31,9 @@ const command: Command = {
 	roleWhitelist: [
 		ids.roles.botTranslator,
 		ids.roles.qpTranslator,
-		ids.roles.sbaTranslator,
 		ids.roles.hypixelTranslator,
 		ids.roles.botPf,
 		ids.roles.qpPf,
-		ids.roles.sbaPf,
 		ids.roles.hypixelPf,
 	],
 	channelWhitelist: [ids.channels.bots, ids.channels.staffBots, ids.channels.botDev],

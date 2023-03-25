@@ -17,7 +17,6 @@ const command: Command = {
 			choices: [
 				{ name: "Hypixel", value: "hypixel" },
 				{ name: "Quickplay", value: "quickplay" },
-				{ name: "SkyblockAddons", value: "skyblockaddons" },
 				{ name: "Hypixel Translators Bot", value: "bot" },
 			],
 			required: false,
@@ -27,7 +26,7 @@ const command: Command = {
 	async execute(interaction) {
 		if (!interaction.inCachedGuild()) return
 		await interaction.deferReply()
-		const projectInput = interaction.options.getString("project", false) as "hypixel" | "quickplay" | "skyblockaddons" | "bot"
+		const projectInput = interaction.options.getString("project", false) as "hypixel" | "quickplay" | "bot"
 		if (!projectInput) {
 			await stats(true).catch(err => {
 				throw err
@@ -38,9 +37,9 @@ const command: Command = {
 				title: "All statistics channels have been updated!",
 				description: `Check them out at ${interaction.guild!.channels.cache.find(
 					c => c.name === "hypixel-language-status"
-				)}, ${interaction.guild!.channels.cache.find(c => c.name === "sba-language-status")}, ${interaction.guild!.channels.cache.find(
-					c => c.name === "bot-language-status"
-				)} and ${interaction.guild!.channels.cache.find(c => c.name === "quickplay-language-status")}`,
+				)}, ${interaction.guild!.channels.cache.find(c => c.name === "bot-language-status")} and ${interaction.guild!.channels.cache.find(
+					c => c.name === "quickplay-language-status"
+				)}`,
 				footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },
 			})
 			await interaction.editReply({ embeds: [allEmbed] })

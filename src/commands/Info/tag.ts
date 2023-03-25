@@ -19,7 +19,6 @@ const command: Command = {
 				{ name: "How to get proofreader on the Hypixel project", value: "proofreader" },
 				{ name: "Minecraft Crowdin Project", value: "minecraft" },
 				{ name: "Quickplay links", value: "quickplay" },
-				{ name: "SkyblockAddons links", value: "skyblockaddons" },
 				{ name: "Discord server thread", value: "thread" },
 				{ name: "Hypixel Translators Community Twitter", value: "twitter" },
 			],
@@ -42,7 +41,6 @@ const command: Command = {
 				| "proofreader"
 				| "minecraft"
 				| "quickplay"
-				| "skyblockaddons"
 				| "thread"
 				| "twitter",
 			target = interaction.options.getUser("target", false)
@@ -82,12 +80,6 @@ const command: Command = {
 					'Click [here](<https://crowdin.com/project/quickplay> "Quickplay Crowdin project") to access the Quickplay Crowdin project.\n' +
 					'Click [here](<https://hypixel.net/threads/1317410/> "Quickplay - Quickly Join Games on the Network") to check out the thread showcasing the mod.\n' +
 					'The Quickplay Discord server can be found [here](<https://discord.gg/373EGB4> "Quickplay Discord server").'
-				break
-			case "skyblockaddons":
-				response =
-					'Click [here](<https://crowdin.com/project/skyblockaddons> "SkyblockAddons Crowdin project") to access the SkyblockAddons Crowdin project.\n' +
-					'Click [here](<https://hypixel.net/threads/2109217/> "SkyblockAddons - Useful features for skyblock!") to check out the thread showcasing the mod.\n' +
-					'This project is owned by Biscuit! Join his server [here](<https://discord.gg/zWyr3f5GXz> "Biscuit\'s Bakery").'
 				break
 			case "thread":
 				response =

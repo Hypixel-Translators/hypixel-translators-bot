@@ -94,7 +94,7 @@ async function info(interaction: ChatInputCommandInteraction<"cached">) {
 				{
 					name: "**Translation Channels 🔠**",
 					value:
-						"We offer channels for each one of the currently supported projects: **Hypixel**, **SkyblockAddons**, **Quickplay** and our **Bot**.\nEach category has 3 text channels: one for translators, one for proofreaders and one with the project's language status that gets updated every 20 minutes. They also have 2 voice channels: one for translators and one for proofreaders. If you have any questions related to your project, they should be sent here!",
+						"We offer channels for each one of the currently supported projects: **Hypixel**, **Quickplay** and our **Bot**.\nEach category has 3 text channels: one for translators, one for proofreaders and one with the project's language status that gets updated every 20 minutes. They also have 2 voice channels: one for translators and one for proofreaders. If you have any questions related to your project, they should be sent here!",
 				},
 				{
 					name: "**Language-specific channels 🌐**",
@@ -140,7 +140,7 @@ async function info(interaction: ChatInputCommandInteraction<"cached">) {
 			},
 			{
 				name: "**Translators**",
-				value: `Each of the following roles applies to all 4 projects we support: **Hypixel**, **SkyblockAddons**, **Quickplay** and our **Bot**.\n**Managers** - The managers of each project are the ones responsible for new strings, proofreader promotions, amongst other things. Please avoid tagging people with these roles (refer to rule 5).\n**Proofreaders** - The proofreaders of each language are the ones responsible for reviewing and approving strings. If you notice any mistakes, these are the people you should message.\n**Translators** - A translator's job is to suggest and vote on translations, which helps the proofreaders' job a lot.\n\nAdditionally, **Hypixel** translators get access to **Veteran Roles**, roles showing how long you've been on the project for, and **Language Roles**, which give you access to your language's private channels (refer to the [language-specific channels section](${channelsMessage.url}))`,
+				value: `Each of the following roles applies to all 3 projects we support: **Hypixel**, **Quickplay** and our **Bot**.\n**Managers** - The managers of each project are the ones responsible for new strings, proofreader promotions, amongst other things. Please avoid tagging people with these roles (refer to rule 5).\n**Proofreaders** - The proofreaders of each language are the ones responsible for reviewing and approving strings. If you notice any mistakes, these are the people you should message.\n**Translators** - A translator's job is to suggest and vote on translations, which helps the proofreaders' job a lot.\n\nAdditionally, **Hypixel** translators get access to **Veteran Roles**, roles showing how long you've been on the project for, and **Language Roles**, which give you access to your language's private channels (refer to the [language-specific channels section](${channelsMessage.url}))`,
 			},
 			{
 				name: "**Miscellaneous**",
@@ -225,7 +225,7 @@ async function verify(interaction: ChatInputCommandInteraction<"cached">) {
 			{
 				name: "Translator/Proofreader",
 				value:
-					'If you are a translator or proofreader for either the **Hypixel**, **Quickplay** or **SkyblockAddons** projects, please send us the link to your Crowdin profile (e.g. <https://crowdin.com/profile/ImRodry> **and not** <https://crowdin.com/profile>) on **this channel** so that you can be automatically verified. Keep in mind that in order to be verified, your profile must be **public** and you must include your Discord username and discriminator in your "About" section (eg: Rodry#4020). If you don\'t receive your roles within 1 minute, please contact <@!240875059953139714>.',
+					'If you are a translator or proofreader for either the **Hypixel** or **Quickplay** projects, please send us the link to your Crowdin profile (e.g. <https://crowdin.com/profile/ImRodry> **and not** <https://crowdin.com/profile>) on **this channel** so that you can be automatically verified. Keep in mind that in order to be verified, your profile must be **public** and you must include your Discord username and discriminator in your "About" section (eg: Rodry#4020). If you don\'t receive your roles within 1 minute, please contact <@!240875059953139714>.',
 			},
 			{
 				name: "Not a translator",

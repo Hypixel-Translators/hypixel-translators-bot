@@ -115,7 +115,6 @@ client.on("messageCreate", async message => {
 	) {
 		if (
 			message.channel.parentId === ids.categories.hypixel ||
-			message.channel.parentId === ids.categories.sba ||
 			message.channel.parentId === ids.categories.bot ||
 			message.channel.parentId === ids.categories.quickplay
 		) {

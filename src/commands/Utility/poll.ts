@@ -149,7 +149,6 @@ const command: Command = {
 		ids.categories.verification,
 		ids.categories.main,
 		ids.categories.hypixel,
-		ids.categories.sba,
 		ids.categories.bot,
 		ids.categories.quickplay,
 	],
