@@ -70,7 +70,7 @@ export async function updateProjectStatus(projectId: number) {
 			timestamp: Date.now(),
 		})
 
-		await msg.edit({ content: null, embeds: [embed] })
+		msg.edit({ content: null, embeds: [embed] })
 	}
 	const oldStringCount = mongoProject.stringCount,
 		newStringCount = langStatus[0].data.phrases.total
