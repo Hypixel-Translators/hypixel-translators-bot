@@ -281,7 +281,7 @@ const command: Command = {
 			if (!userLangs.length) {
 				if (
 					interaction.member.roles.cache.find(role => role.name.startsWith("Bot ") && role.id !== ids.roles.botUpdates) ||
-					interaction.member.roles.cache.find(role => role.name.startsWith("SkyblockAddons "))
+					interaction.member.roles.cache.find(role => role.name.startsWith("Quickplay "))
 				) {
 					const embed = new EmbedBuilder({
 						color: colors.error,
