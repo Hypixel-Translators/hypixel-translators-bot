@@ -20,7 +20,7 @@
 	"dependencies": {
 		"@crowdin/crowdin-api-client": "^1.22.1",
 		"@messageformat/core": "^3.1.0",
-		"canvas": "^2.11.0",
+		"canvas": "^2.11.2",
 		"discord.js": "^14.8.0",
 		"language-flag-colors": "^2.1.2",
 		"mongodb": "^5.1.0",
