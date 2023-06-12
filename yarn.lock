@@ -146,14 +146,14 @@
     semver "^7.3.5"
     tar "^6.1.11"
 
-"@messageformat/core@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@messageformat/core/-/core-3.1.0.tgz#d4d2f5c3555228a6b5980b122a02b53dfc6458bd"
-  integrity sha512-UxAnjecnRG4u2iaggwIyylYPHmk5BTErJcKmWyAKTXqYgSW1bFLp4D7fIzuh6bk17Qfcmf3qtufdrstCB23nBA==
+"@messageformat/core@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@messageformat/core/-/core-3.2.0.tgz#fcb1e530f4ae4ed61c9c7a0b49cc119a79468da1"
+  integrity sha512-ppbb/7OYqg/t4WdFk8VAfZEV2sNUq3+7VeBAo5sKFhmF786sh6gB7fUeXa2qLTDIcTHS49HivTBN7QNOU5OFTg==
   dependencies:
     "@messageformat/date-skeleton" "^1.0.0"
     "@messageformat/number-skeleton" "^1.0.0"
-    "@messageformat/parser" "^5.0.0"
+    "@messageformat/parser" "^5.1.0"
     "@messageformat/runtime" "^3.0.1"
     make-plural "^7.0.0"
     safe-identifier "^0.4.1"
@@ -168,10 +168,10 @@
   resolved "https://registry.yarnpkg.com/@messageformat/number-skeleton/-/number-skeleton-1.1.0.tgz#eb636738da8abbd35ccbeb84f7d84d63302aeb61"
   integrity sha512-F0Io+GOSvFFxvp9Ze3L5kAoZ2NnOAT0Mr/jpGNd3fqo8A0t4NxNIAcCdggtl2B/gN2ErkIKSBVPrF7xcW1IGvA==
 
-"@messageformat/parser@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@messageformat/parser/-/parser-5.0.0.tgz#5737e69d7d4a469998b527710f1891174fc1b262"
-  integrity sha512-WiDKhi8F0zQaFU8cXgqq69eYFarCnTVxKcvhAONufKf0oUxbqLMW6JX6rV4Hqh+BEQWGyKKKHY4g1XA6bCLylA==
+"@messageformat/parser@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@messageformat/parser/-/parser-5.1.0.tgz#05e4851c782d633ad735791dd0a68ee65d2a7201"
+  integrity sha512-jKlkls3Gewgw6qMjKZ9SFfHUpdzEVdovKFtW1qRhJ3WI4FW5R/NnGDqr8SDGz+krWDO3ki94boMmQvGke1HwUQ==
   dependencies:
     moo "^0.5.1"
 
