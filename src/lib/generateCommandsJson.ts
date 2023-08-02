@@ -22,7 +22,7 @@ for (const command of client.commands
 writeFileSync("./strings/en/commands.json", JSON.stringify(result, null, "\t"))
 console.log("Successfully regenerated the commands.json file")
 
-function applyOptionsData(obj: { [option: string]: CommandOption }, options: ApplicationCommandOptionData[]) {
+function applyOptionsData(obj: { [option: string]: CommandOption }, options: readonly ApplicationCommandOptionData[]) {
 	for (const option of options) {
 		Object.defineProperty(obj, option.name, { value: {}, enumerable: true })
 		Object.defineProperties(obj[option.name], {
