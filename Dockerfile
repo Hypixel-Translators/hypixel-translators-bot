@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:20
 RUN apt-get update
 # Install the dependencies for canvas
 RUN apt-get install build-essential libgif-dev -y
