@@ -21,7 +21,7 @@
 		"@crowdin/crowdin-api-client": "^1.24.0",
 		"@messageformat/core": "^3.2.0",
 		"canvas": "^2.11.2",
-		"discord.js": "^14.12.0",
+		"discord.js": "^14.12.1",
 		"language-flag-colors": "^2.3.0",
 		"mongodb": "^5.7.0",
 		"node-cron": "^3.0.2",
