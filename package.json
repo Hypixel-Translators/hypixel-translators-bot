@@ -40,7 +40,7 @@
 		"eslint": "^8.47.0",
 		"eslint-config-prettier": "^9.0.0",
 		"eslint-import-resolver-typescript": "^3.6.0",
-		"eslint-plugin-import": "^2.28.0",
+		"eslint-plugin-import": "^2.28.1",
 		"prettier": "^3.0.2",
 		"rimraf": "^5.0.1"
 	}
