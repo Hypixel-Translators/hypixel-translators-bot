@@ -37,11 +37,11 @@ client.on("guildMemberRemove", async member => {
 				color: colors.error,
 				author: { name: "Member Left", iconURL: member.displayAvatarURL({ extension: "png" }) },
 				description: `${member} (${member.user.tag}) just left the server. ${
-					oldData.value
+					oldData
 						? `Here's their DB data:\n\n${codeBlock(
 								"json",
 								// Dirty fix for getting data that can be pasted into the DB.
-								JSON.stringify(Object.assign(oldData.value, { _id: { $oid: oldData.value!._id } }), null, 2)
+								JSON.stringify(Object.assign(oldData, { _id: { $oid: oldData!._id } }), null, 2)
 						  )}`
 						: "Couldn't find their DB data!"
 				} `,

@@ -286,9 +286,9 @@ async function editQuote(interaction: ChatInputCommandInteraction, collection: C
 		newQuote = interaction.options.getString("quote", true)
 	if (!quoteId) throw "noQuote"
 	const result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { quote: newQuote } })
-	if (result.value) {
+	if (result) {
 		const author = await Promise.all(
-				result.value.author.map(
+				result.author.map(
 					a =>
 						interaction.guild!.members.cache.get(a)?.toString() ??
 						interaction.client.users
@@ -302,17 +302,17 @@ async function editQuote(interaction: ChatInputCommandInteraction, collection: C
 				author: { name: "Quote" },
 				title: `Successfully edited quote #${quoteId}`,
 				fields: [
-					{ name: "Old quote", value: result.value.quote },
+					{ name: "Old quote", value: result.quote },
 					{ name: "New quote", value: newQuote },
 					{ name: "Author", value: author.join(" and ") },
-					{ name: "Link", value: result.value.url ?? "None" },
+					{ name: "Link", value: result.url ?? "None" },
 				],
 				footer: {
 					text: generateTip(),
 					iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 				},
 			})
-		if (result.value.imageURL) embed.setImage(result.value.imageURL)
+		if (result.imageURL) embed.setImage(result.imageURL)
 		await interaction.reply({ embeds: [embed] })
 	} else {
 		const embed = new EmbedBuilder({
@@ -332,9 +332,9 @@ async function deleteQuote(interaction: ChatInputCommandInteraction, collection:
 	const quoteId = interaction.options.getInteger("index", true)
 	if (quoteId <= 0) throw "noQuote"
 	const result = await collection.findOneAndDelete({ id: quoteId })
-	if (result.value) {
+	if (result) {
 		const author = await Promise.all(
-			result.value.author.map(
+			result.author.map(
 				a =>
 					interaction.guild!.members.cache.get(a)?.toString() ??
 					interaction.client.users
@@ -344,8 +344,8 @@ async function deleteQuote(interaction: ChatInputCommandInteraction, collection:
 			)
 		)
 		await collection.updateMany({ id: { $gt: quoteId } }, { $inc: { id: -1 } })
-		if (result.value.url) {
-			const urlSplit = result.value.quote.split("/")
+		if (result.url) {
+			const urlSplit = result.quote.split("/")
 			// Remove all reactions from the message
 			await (interaction.client.channels.cache.get(urlSplit.at(-2)!) as TextChannel).messages.cache
 				.get(urlSplit.at(-1)!)
@@ -358,15 +358,15 @@ async function deleteQuote(interaction: ChatInputCommandInteraction, collection:
 			title: `Successfully deleted quote #${quoteId}`,
 			fields: [
 				{ name: "Author", value: author.join(" and ") },
-				{ name: "Quote", value: result.value.quote },
-				{ name: "Link", value: result.value.url ?? "None" },
+				{ name: "Quote", value: result.quote },
+				{ name: "Link", value: result.url ?? "None" },
 			],
 			footer: {
 				text: generateTip(),
 				iconURL: ((interaction.member as GuildMember | null) ?? interaction.user).displayAvatarURL({ extension: "png" }),
 			},
 		})
-		if (result.value.imageURL) embed.setImage(result.value.imageURL)
+		if (result.imageURL) embed.setImage(result.imageURL)
 		await interaction.reply({ embeds: [embed] })
 	} else {
 		const embed = new EmbedBuilder({
@@ -407,9 +407,9 @@ async function linkQuote(interaction: ChatInputCommandInteraction, collection: C
 	if (linkAttch && firstAttachment)
 		result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url, imageURL: firstAttachment } })
 	else result = await collection.findOneAndUpdate({ id: quoteId }, { $set: { url: msg.url } })
-	if (result.value) {
+	if (result) {
 		const author = await Promise.all(
-				result.value.author.map(
+				result.author.map(
 					a =>
 						interaction.guild!.members.cache.get(a)?.toString() ??
 						interaction.client.users
@@ -423,9 +423,9 @@ async function linkQuote(interaction: ChatInputCommandInteraction, collection: C
 				author: { name: "Quote" },
 				title: `Successfully linked quote #${quoteId}`,
 				fields: [
-					{ name: "Old URL", value: result.value.url ?? "None" },
+					{ name: "Old URL", value: result.url ?? "None" },
 					{ name: "New URL", value: msg.url },
-					{ name: "Quote", value: result.value.quote },
+					{ name: "Quote", value: result.quote },
 					{ name: "Author", value: author.join(" and ") },
 				],
 				footer: {
@@ -434,7 +434,7 @@ async function linkQuote(interaction: ChatInputCommandInteraction, collection: C
 				},
 			})
 		if (linkAttch && firstAttachment) embed.setImage(firstAttachment)
-		else if (result.value.imageURL) embed.setImage(result.value.imageURL)
+		else if (result.imageURL) embed.setImage(result.imageURL)
 		await interaction.reply({ embeds: [embed] })
 	} else {
 		const embed = new EmbedBuilder({

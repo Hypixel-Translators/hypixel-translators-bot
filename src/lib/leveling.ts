@@ -31,7 +31,7 @@ export async function leveling(message: Message) {
 					{ id: message.author.id },
 					{ $inc: { "levels.level": 1, "levels.totalXp": randomXp, "levels.messageCount": 1 }, $set: { "levels.levelXp": -xpNeeded || 0 } }
 				),
-				newLvl = (result.value!.levels?.level ?? 0) + 1
+				newLvl = (result!.levels?.level ?? 0) + 1
 
 			if (userDb.settings?.lvlUpMsg ?? true) await message.reply(`GG ${message.author}, you just advanced to level ${newLvl}! 🎉`)
 			await db.collection<Stats>("stats").insertOne({ type: "MESSAGE", name: "lvlUp", value: newLvl, user: message.author.id })
