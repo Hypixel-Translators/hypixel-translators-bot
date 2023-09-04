@@ -54,13 +54,13 @@ const command: Command = {
 				}
 			} else if (/(?:https:\/\/)?(?:www\.)?crowdin\.com\/profile\/\S+/gi.test(profile)) {
 				const result = await db.collection<DbUser>("users").findOneAndUpdate({ id: user.id }, { $set: { profile: profile } })
-				if (result.value!.profile !== profile) {
+				if (result!.profile !== profile) {
 					const embed = new EmbedBuilder({
 						color: colors.success,
 						author: { name: "User Profile" },
 						title: `Successfully updated ${user.tag}'s Crowdin profile!`,
 						fields: [
-							{ name: "Old profile", value: result.value!.profile ?? "None" },
+							{ name: "Old profile", value: result!.profile ?? "None" },
 							{ name: "New profile", value: profile },
 						],
 						footer: { text: generateTip(), iconURL: interaction.member.displayAvatarURL({ extension: "png" }) },

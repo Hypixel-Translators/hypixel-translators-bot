@@ -309,16 +309,16 @@ export async function awaitPoll(poll: Poll) {
 		pollDb = await db
 			.collection<Poll>("polls")
 			.findOneAndUpdate({ messageId: poll.messageId, channelId: poll.channelId }, { $set: { ended: true } })
-	if (!message || !pollDb.value || pollDb.value.ended) return
-	const totalVoteCount = pollDb.value.options.reduce((acc, o) => acc + o.votes.length, 0),
+	if (!message || !pollDb || pollDb.ended) return
+	const totalVoteCount = pollDb.options.reduce((acc, o) => acc + o.votes.length, 0),
 		embed = new EmbedBuilder({
 			color: Colors.Blurple,
-			title: pollDb.value.question,
+			title: pollDb.question,
 			description: totalVoteCount
 				? `A total of ${totalVoteCount} ${totalVoteCount === 1 ? "person" : "people"} voted on this poll!`
 				: "Unfortunately, no one voted on this poll",
 			fields: totalVoteCount
-				? pollDb.value.options.map(o => ({
+				? pollDb.options.map(o => ({
 						name: o.text,
 						// Make sure to account for NaN values
 						value: `${generateProgressBar(o.votes.length, totalVoteCount)} ${
@@ -327,11 +327,11 @@ export async function awaitPoll(poll: Poll) {
 				  }))
 				: [],
 			footer: { text: "Poll results • Created at" },
-			timestamp: new ObjectId(pollDb.value._id).getTimestamp().getTime(),
+			timestamp: new ObjectId(pollDb._id).getTimestamp().getTime(),
 		}),
 		msg = await message.channel!.send({
 			embeds: [embed],
-			content: `<@${pollDb.value.authorId}> your poll just ended. Check out the results below!`,
+			content: `<@${pollDb.authorId}> your poll just ended. Check out the results below!`,
 		}),
 		linkButton = new ActionRowBuilder<ButtonBuilder>({
 			components: [
