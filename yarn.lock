@@ -7,10 +7,10 @@
   resolved "https://registry.yarnpkg.com/@aashutoshrathi/word-wrap/-/word-wrap-1.2.6.tgz#bd9154aec9983f77b3a034ecaa015c2e4201f6cf"
   integrity sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==
 
-"@crowdin/crowdin-api-client@^1.25.0":
-  version "1.25.0"
-  resolved "https://registry.yarnpkg.com/@crowdin/crowdin-api-client/-/crowdin-api-client-1.25.0.tgz#d59f750c7872bb945608e92aa9eea2a923d29405"
-  integrity sha512-IfMrjGkhpbVZi+C+1OALyIymBuXWjSTZiLOaep3w0X0foILYFwhchqNTFyWYSQNLB2Fb6qk3d02dYG8MSsemMQ==
+"@crowdin/crowdin-api-client@^1.25.1":
+  version "1.25.1"
+  resolved "https://registry.yarnpkg.com/@crowdin/crowdin-api-client/-/crowdin-api-client-1.25.1.tgz#d1eddb0e4642135cdbc2f2698b0472bb6806b14f"
+  integrity sha512-/ogvjJMkir9v3eYW8GpdH7KU2P3VLovQU/TXg7at7ozP9JYbUf8Jd7V035mWnSy2lymdtCqP/R8f5NZwR/lkFQ==
   dependencies:
     axios "^1"
 
