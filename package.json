@@ -24,7 +24,7 @@
 		"discord.js": "^14.13.0",
 		"language-flag-colors": "^2.3.0",
 		"mongodb": "^6.2.0",
-		"node-cron": "^3.0.2",
+		"node-cron": "^3.0.3",
 		"puppeteer": "18.2.1",
 		"typescript": "^5.2.2"
 	},
@@ -33,7 +33,7 @@
 	},
 	"devDependencies": {
 		"@types/node": "^18.18.8",
-		"@types/node-cron": "^3.0.10",
+		"@types/node-cron": "^3.0.11",
 		"@typescript-eslint/eslint-plugin": "^5.62.0",
 		"@typescript-eslint/parser": "^5.62.0",
 		"dotenv": "^16.3.1",
