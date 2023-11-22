@@ -214,6 +214,8 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 			return await new Promise<CrowdinProject[]>(resolve => {
 				// eslint-disable-next-line no-restricted-globals
 				setInterval(() => {
+					// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+					// @ts-ignore
 					const rawProjects = window.eval("crowdin.profile_projects.view.state.projects")
 					if (rawProjects) resolve(rawProjects)
 				}, 100)

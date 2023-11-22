@@ -107,15 +107,21 @@ export async function checkBuild(shouldPing: boolean) {
 	await page.goto("https://crowdin.com/project/hypixel/activity-stream")
 	await page.waitForSelector(".list-activity")
 	const lastBuild = await page.evaluate(async () => {
+		/* eslint-disable @typescript-eslint/ban-ts-comment */
+		// @ts-ignore
 		window.eval('crowdin.activity.filters.filter_by_type = "1"') // Filter by builds only to assure we get a build
+		// @ts-ignore
 		await window.eval("crowdin.activity.refresh()") // Refresh the activity stream to apply the new filter
 		await new Promise<void>(resolve => {
 			// eslint-disable-next-line no-restricted-globals
 			setInterval(() => {
+				// @ts-ignore
 				if (window.eval('document.querySelector(".build_project")')) resolve()
 			}, 100)
 		})
+		// @ts-ignore
 		return window.eval('crowdin.activity.data.filter(a => a.type === "build_project")[0]') as CrowdinBuildActivity
+		/* eslint-enable @typescript-eslint/ban-ts-comment */
 	})
 	await page.close()
 	await closeConnection(browser.uuid)
