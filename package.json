@@ -23,7 +23,7 @@
 		"canvas": "^2.11.2",
 		"discord.js": "^14.13.0",
 		"language-flag-colors": "^2.3.0",
-		"mongodb": "^6.2.0",
+		"mongodb": "^6.3.0",
 		"node-cron": "^3.0.3",
 		"puppeteer": "18.2.1",
 		"typescript": "^5.2.2"
