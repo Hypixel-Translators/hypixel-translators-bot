@@ -1,5 +1,7 @@
 # Hypixel Translators Bot [![Compile and lint](https://github.com/Hypixel-Translators/hypixel-translators-bot/actions/workflows/lintCompile.yml/badge.svg)](https://github.com/Hypixel-Translators/hypixel-translators-bot/actions/workflows/lintCompile.yml) [![Twitter](https://img.shields.io/twitter/follow/HTranslators?style=social)](https://twitter.com/HTranslators)
 
+# This project has been archived as of 22/11/2023 due to the closure of the server. Thank you to everyone who contributed. You can read more about it in the announcement on the server.
+
 [![Join our Discord server](https://discordapp.com/api/guilds/549503328472530974/widget.png?style=banner2)](https://discord.gg/rcT948A)
 
 Welcome to the [Hypixel Translators Bot](https://discord.gg/rcT948A) GitHub repository! Here you can [report bugs](https://github.com/Hypixel-Translators/hypixel-translators-bot/issues) and [contribute to the code](https://github.com/Hypixel-Translators/hypixel-translators-bot/pulls).
