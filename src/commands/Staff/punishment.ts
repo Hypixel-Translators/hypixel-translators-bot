@@ -572,8 +572,8 @@ const command: Command = {
 					punish.type === "VERBAL"
 						? new Date(punish.timestamp).setDate(new Date(punish.timestamp).getDate() + 1)
 						: punish.type === "WARN"
-						? new Date(punish.timestamp).setDate(new Date(punish.timestamp).getDate() + 7)
-						: new Date(punish.endTimestamp!).setDate(new Date(punish.endTimestamp!).getDate() + 30)
+						  ? new Date(punish.timestamp).setDate(new Date(punish.timestamp).getDate() + 7)
+						  : new Date(punish.endTimestamp!).setDate(new Date(punish.endTimestamp!).getDate() + 30)
 				embed.addFields({
 					name: `Case ${punish.case}: ${
 						punish.endTimestamp ? (punish.duration ? `${punish.duration}${punish.type === "BAN" ? "d" : "h"} ` : "permanent ") : ""
@@ -609,8 +609,8 @@ const command: Command = {
 					punish.type === "VERBAL"
 						? new Date(punish.timestamp).setDate(new Date(punish.timestamp).getDate() + 1)
 						: punish.type === "WARN"
-						? new Date(punish.timestamp).setDate(new Date(punish.timestamp).getDate() + 7)
-						: new Date(punish.endTimestamp!).setDate(new Date(punish.endTimestamp!).getDate() + 30)
+						  ? new Date(punish.timestamp).setDate(new Date(punish.timestamp).getDate() + 7)
+						  : new Date(punish.endTimestamp!).setDate(new Date(punish.endTimestamp!).getDate() + 30)
 				embed.addFields({
 					name: `Case ${punish.case}: ${
 						punish.endTimestamp ? (punish.duration ? `${punish.duration}${punish.type === "BAN" ? "d" : "h"} ` : "permanent ") : ""
@@ -647,8 +647,8 @@ const command: Command = {
 					punish.type === "VERBAL"
 						? new Date(punish.timestamp).setDate(new Date(punish.timestamp).getDate() + 1)
 						: punish.type === "WARN"
-						? new Date(punish.timestamp).setDate(new Date(punish.timestamp).getDate() + 7)
-						: new Date(punish.endTimestamp!).setDate(new Date(punish.endTimestamp!).getDate() + 30)
+						  ? new Date(punish.timestamp).setDate(new Date(punish.timestamp).getDate() + 7)
+						  : new Date(punish.endTimestamp!).setDate(new Date(punish.endTimestamp!).getDate() + 30)
 				confirmEmbed.addFields({
 					name: `Case ${punish.case}: ${
 						punish.endTimestamp ? (punish.duration ? `${punish.duration}${punish.type === "BAN" ? "d" : "h"} ` : "permanent ") : ""

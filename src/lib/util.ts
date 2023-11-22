@@ -147,8 +147,8 @@ export function createModlogEmbed(embedData: EmbedData, modlog: PunishmentLog, m
 		modlog.type === "VERBAL"
 			? new Date(modlog.timestamp).setDate(new Date(modlog.timestamp).getDate() + 1)
 			: modlog.type === "WARN"
-			? new Date(modlog.timestamp).setDate(new Date(modlog.timestamp).getDate() + 7)
-			: new Date(modlog.endTimestamp ?? modlog.timestamp).setDate(new Date(modlog.endTimestamp ?? modlog.timestamp).getDate() + 30)
+			  ? new Date(modlog.timestamp).setDate(new Date(modlog.timestamp).getDate() + 7)
+			  : new Date(modlog.endTimestamp ?? modlog.timestamp).setDate(new Date(modlog.endTimestamp ?? modlog.timestamp).getDate() + 30)
 	if (typeof modlog.duration === "number") {
 		embedData.fields = [
 			{ name: "Moderator", value: `<@!${modlog.moderator}>`, inline: true },

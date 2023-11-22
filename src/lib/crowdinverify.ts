@@ -285,8 +285,8 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 		const highestRole = ["owner", "manager"].includes(project.user_role)
 				? "Manager"
 				: project.contributed_languages?.some(l => l.user_role.name === "Proofreader")
-				? "Proofreader"
-				: "Translator",
+				  ? "Proofreader"
+				  : "Translator",
 			projectHighestHole = member.guild.roles.cache.find(r => r.name === `${projectName} ${highestRole}`)
 		if (projectHighestHole) allProjectRoles.push(projectHighestHole)
 		else console.error(`Couldn't find the ${highestRole} role for the ${projectName} project`)
@@ -338,10 +338,10 @@ export async function crowdinVerify(member: GuildMember, url?: string | null, se
 			? // Place veteran roles at the end
 			  b.name.localeCompare(a.name)
 			: !isProjectRole(a) && !isProjectRole(b)
-			? // Sort language roles be their position
-			  b.position - a.position
-			: // Place Hypixel project roles first
-			  a.color - b.color
+			  ? // Sort language roles be their position
+			    b.position - a.position
+			  : // Place Hypixel project roles first
+			    a.color - b.color
 	)) {
 		const project = isProjectRole(role) ? (role.name.split(" ")[0] as ValidProjects) : "Hypixel"
 		rolesPerProject[project] ??= []
